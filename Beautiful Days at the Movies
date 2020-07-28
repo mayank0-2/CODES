@@ -1,0 +1,33 @@
+#include<stdio.h>
+#include<stdlib.h>
+#include<string.h>
+#include<math.h>
+
+int reverse(int p) {
+    int r = 0;
+    while (p != 0) {
+        r = r * 10;
+        r = r + p % 10;
+        p = p / 10;
+    }
+    
+    return r;
+}
+int beautiful (int i, int j, int k) {
+    int p, alter, count = 0;
+    for (p = i; p < j + 1; p ++) {
+        alter = reverse(p);
+        if ((p - alter) % k == 0) {
+            count ++;
+        }
+    }
+    printf("%d",count);
+    
+    return 0;
+}
+int main(void) {
+    int i, j, k;
+    scanf("%d %d %d",&i, &j, &k);
+    beautiful(i, j, k);
+    return 0;
+}
