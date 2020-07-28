@@ -1,0 +1,39 @@
+#include<stdio.h>
+#include<stdlib.h>
+#include<math.h>
+
+void sort (int *arr, int n) {
+    int i, temp;
+    temp = arr[n - 1];
+    for (i = n - 2; i >= 0; i --) {
+        if (temp < arr[i]) {
+            arr[i + 1] = arr[i]; 
+            print(arr, n);
+        }
+        else {
+            arr[i + 1] = temp;
+            print(arr, n);
+            break;
+        }
+        if (i == 0 ) {
+            arr[0] = temp;
+            print(arr, n);
+        }
+    }
+}
+void print(int *arr, int n) {
+    int i;
+    for (i = 0; i < n; i ++) {
+        printf("%d ",arr[i]);
+    }
+    printf("\n");
+}
+int main(void) {
+    int n, i, temp;
+    scanf("%d",&n);
+    int arr[n];
+    for (i = 0; i < n; i ++) {
+        scanf("%d",&arr[i]);
+    }
+        sort(arr, n);
+}
