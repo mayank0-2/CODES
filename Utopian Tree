@@ -1,0 +1,28 @@
+#include<stdio.h>
+#include<stdlib.h>
+#include<math.h>
+#include<string.h>
+
+int tree(int n) {
+    int i, height = 1;
+    for (i = 0; i < n; i ++) {
+        if (i % 2 != 0) {
+            height ++;
+        }
+        else {
+            height = height * 2;
+        }
+    }
+    printf("%d\n",height);
+    return 0;
+}
+
+int main(void) {
+    int t, i, n;
+    scanf("%d",&t);
+    for (i = 0; i < t; i ++) {
+        scanf("%d",&n);
+        tree(n);
+    }
+    return 0;
+}
