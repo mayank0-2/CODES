@@ -1,0 +1,23 @@
+#include<stdio.h>
+#include<stdlib.h>
+#include<math.h>
+
+int main(void) {
+    int n, k, i, max = 0;
+    scanf("%d %d", &n, &k);
+    int height[n];
+    for (i = 0; i < n; i ++) {
+        scanf("%d",&height[i]);
+    }
+    for (i = 0; i < n; i ++) {
+        if (height[i] > max) {
+            max = height[i];
+        }
+    }
+    if(max - k < 0) 
+        printf("0");
+    else
+        printf("%d",(max - k));
+
+    return 0;
+}
