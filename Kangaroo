@@ -1,0 +1,28 @@
+#include <stdio.h>
+
+int main() {
+    int x1, x2, v1, v2;
+    scanf("%d%d%d%d",&x1,&v1,&x2,&v2);
+    int a, b, i;
+    int count = 0;
+    for(i=0;i<10000;i++)
+    {
+            a = x1 + v1;
+            b = x2 + v2;
+        if(a == b)
+        {
+            count++;
+        }
+        x1=a;
+        x2=b;
+    }
+    if(count>0)
+    {
+        printf("YES");
+    }
+    else
+    {
+        printf("NO");
+    }
+    return 0;
+}
