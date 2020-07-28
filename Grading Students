@@ -1,0 +1,23 @@
+#include<stdio.h>
+int main(void)
+{
+    int n;
+    scanf("%d",&n);//no. of students
+    int a[n],i;
+    for(i=0;i<n;i++)
+    {
+        scanf("%d",&a[i]);
+    }
+        
+        for(i=0;i<n;i++)
+        {
+            if(a[i] >= 38 && a[i] % 5 >= 3)
+            {
+                printf("%d\n",a[i] + (5-a[i]%5));
+            }
+            else 
+            {
+                printf("%d\n",a[i]);
+            }
+        }
+}
