@@ -1,0 +1,27 @@
+#include<stdio.h>
+#include<stdlib.h>
+#include<string.h>
+#include<math.h>
+
+void designerpdf(char word[], int height[]) {
+    int i = 0, count = 0;
+    int max = 0;
+    while (word[i] != NULL) {
+        if (max < height[word[i] - 97]) {
+            max = height[word[i] - 97];
+        }
+        i++;
+        count ++;
+    }
+    printf("%d",max*count);
+}
+int main(void) {
+    int height[26], i;
+    char word[10] = {NULL};
+    for (i = 0; i < 26; i ++) {
+        scanf("%d",&height[i]);
+    }
+    scanf("%s", word);
+    designerpdf(word, height);
+    return 0;
+}
