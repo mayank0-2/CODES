@@ -1,0 +1,21 @@
+#include<stdio.h>
+#include<stdlib.h>
+#include<math.h>
+
+int main(void) {
+    int V, n, i;
+    scanf("%d",&V);
+    scanf("%d",&n);
+    int arr[n];
+    for (i = 0; i < n; i ++) {
+        scanf("%d",&arr[i]);
+    }
+    for (i = 0; i < n; i ++) {
+        if (V == arr[i])
+         {
+             printf("%d",i);
+             break;
+         }
+    }
+    return 0;
+}
