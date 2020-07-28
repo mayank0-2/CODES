@@ -1,0 +1,26 @@
+#include<stdio.h>
+#include<stdlib.h>
+#include<string.h>
+#include<math.h>
+
+void counting_valleys(char s[], int n) {
+    int step = 0, valley = 0, i, prev = 0;
+    for (i = 0; i < n; i ++) {
+        if (s[i] == 'U')
+            step++;
+        else 
+            step --;
+        if (step == -1 && prev == 0) {
+            valley ++;
+        }
+        prev = step;
+    }
+    printf("%d",valley);
+}
+int main(void) {
+    int n, i;
+    scanf("%d",&n);
+    char s[n + 1];
+    scanf("%s", s);
+    counting_valleys(s, n);
+}
