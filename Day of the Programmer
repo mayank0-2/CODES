@@ -1,0 +1,47 @@
+#include<stdio.h>
+#include<stdlib.h>
+
+void prin(int day, int year) {
+    int data[3];
+    data[0] = day;
+    data[2] = year;
+    printf("%d.09.%d",data[0], data[2]);
+}
+void check(int year) {
+    int day;
+    if (1700 <= year && year <= 1917) {
+        if (year % 4 == 0) {
+            //printf("The year is leap year");
+            day = 12;
+            prin(day, year);
+        }
+        else {
+            day = 13;
+            prin(day, year);
+        }
+    }
+        else if (year == 1918) 
+        {
+            day = 26;
+            prin(day, year);
+        }      
+    else {
+    //printf("REached");
+        if(year % 400 == 0 || (year % 4 == 0 && year % 100 != 0)) {
+            //printf("Year is not leap");
+            day = 12;
+            prin(day, year);
+        }
+         else {
+            day = 13;
+            prin(day, year);
+        }
+    }
+}
+int main(void) {
+    int year;
+    //printf("Enter the value of the year");
+    scanf("%d",&year);
+    check(year);
+    return 0;
+}
