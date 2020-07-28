@@ -1,0 +1,25 @@
+#include<stdio.h>
+#include<stdlib.h>
+#include<math.h>
+
+int main (void) {
+    int b, n, m, i, j, max = 0;
+    scanf("%d %d %d",&b, &n, &m);
+
+    int keyboard[n], drives[m];
+    for (i = 0; i < n; i ++) {
+        scanf("%d",&keyboard[i]);
+    }
+    for (i = 0; i < m; i ++) {
+        scanf("%d",&drives[i]);
+    }
+    for (i = 0; i < n; i ++) {
+        for (j = 0; j < m; j ++) {
+            if ((keyboard[i] + drives[j] ) > max && (keyboard[i] + drives[j] ) <= b)
+            max = (keyboard[i] + drives[j] );
+        }
+    }
+    if (max == 0) 
+        max = -1;
+    printf("%d",max);
+}
