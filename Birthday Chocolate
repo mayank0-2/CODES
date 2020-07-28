@@ -1,0 +1,83 @@
+int birthday(int s_count, int* s, int d, int m) {
+int i;
+int count = 0 ;
+switch(m)
+{
+    case 1 : for(i = 0; i < s_count; i ++)
+             {
+                 if(s[i] == d)
+                 {
+                     count++;
+                 }
+             }
+             break;
+
+    case 2 : for(i = 0; i < s_count; i ++)
+            {
+                if((s[i] + s[i + 1]) == d)
+                count++;
+            }
+            break;
+    case 3 : for(i = 0; i < s_count; i ++)
+            {
+                if((s[i] + s[i + 1] + s[i + 2]) == d)
+                count ++;
+            }
+            break;
+    case 4 : for(i= 0; i < s_count; i ++)
+            {
+                if((s[i] + s[i + 1] + s[i + 2] + s[i + 3]) == d)
+                count ++;
+            }
+            break;
+    case 5 : for(i = 0; i < s_count; i ++)
+            {
+                if((s[i] + s[i + 1] +s[i + 2] + s[i + 3] + s[i + 4]) == d)
+                count ++;
+            }
+            break;
+    case 6 :  for(i = 0; i < s_count; i ++)
+            {
+                if((s[i] + s[i + 1] +s[i + 2] + s[i + 3] + s[i + 4] + s[i + 5]) == d)
+                count ++;
+            }
+            break;
+    case 7 :  for(i = 0; i < s_count; i ++)
+            {
+                if((s[i] + s[i + 1] +s[i + 2] + s[i + 3] + s[i + 4] + s[i + 5] + s[i + 6]) == d)
+                count ++;
+            }
+            break;
+    case 8 :  for(i = 0; i < s_count; i ++)
+            {
+                if((s[i] + s[i + 1] +s[i + 2] + s[i + 3] + s[i + 4] + s[i + 5] + s[i + 6] + s[i + 7]) == d)
+                count ++;
+            }
+            break;
+    case 9 : for(i = 0; i < s_count; i ++)
+            {
+                if((s[i] + s[i + 1] +s[i + 2] + s[i + 3] + s[i + 4] + s[i + 5] + s[i + 6] + s[i + 7] + s[i + 8]) == d)
+                count ++;
+            }
+            break;
+    case 10 :  for(i = 0; i < s_count; i ++)
+            {
+                if((s[i] + s[i + 1] +s[i + 2] + s[i + 3] + s[i + 4] + s[i + 5] + s[i + 6] + s[i + 7] + s[i + 8] + s[i + 9]) == d)
+                count ++;
+            }
+            break;
+    case 11 : for(i = 0; i < s_count; i ++)
+            {
+                if((s[i] + s[i + 1] +s[i + 2] + s[i + 3] + s[i + 4] + s[i + 5] + s[i + 6] + s[i + 7] + s[i + 8] + s[i + 9] + s[i + 10]) == d)
+                count ++;
+            }
+            break;
+    case 12 : for(i = 0; i < s_count; i ++)
+            {
+                if((s[i] + s[i + 1] +s[i + 2] + s[i + 3] + s[i + 4] + s[i + 5] + s[i + 6] + s[i + 7] + s[i + 8] + s[i + 9] + s[i + 10] + s[i + 11]) == d)
+                count ++;
+            }
+            break;
+}
+return count;
+}
