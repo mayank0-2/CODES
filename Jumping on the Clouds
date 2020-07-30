@@ -1,0 +1,19 @@
+import java.util.*;
+public class Solution {
+    public static void main (String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int n = sc.nextInt();
+        int[] c = new int[n];
+        int jump = 0;
+        for (int i = 0; i < n; i ++) {
+            c[i] = sc.nextInt();
+        }
+        for (int i = 0; i < n - 1; i = i + 2) {
+            if (c[i] == 1) {
+                i --;
+            }
+            jump ++;
+        }
+        System.out.println(jump);
+    }
+}
