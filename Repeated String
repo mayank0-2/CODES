@@ -1,0 +1,28 @@
+import java.util.*;
+public class Solution {
+    public static void main (String[] args) {
+        Scanner sc = new Scanner(System.in);
+        String s = sc.nextLine();
+        long n = sc.nextLong();
+        int no_of_times = 0;
+        long ans = 0;
+        no_of_times = count(s, s.length());
+        if (n % s.length() == 0) {
+            ans = (n / s.length()) * no_of_times;
+        } else {
+            ans = (n / s.length()) * no_of_times + count(s, n % s.length());
+            
+        } 
+        System.out.println(ans);
+    }
+    public static int count (String s, long n) {
+        int times = 0;
+        for (int i = 0; i < n; i ++) {
+            if (s.charAt(i) == 'a') {
+                times ++;
+            }
+        }
+        return times;
+    }
+
+}
