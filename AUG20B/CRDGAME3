@@ -1,0 +1,34 @@
+Question :-   https://www.codechef.com/AUG20B/problems/CRDGAME3
+
+import java.util.*;
+
+class CRDGAME3 {
+public static void main(String[] args) {
+    Scanner sc = new Scanner(System.in);
+    int T = sc.nextInt();
+    for (int i = 0; i < T; i ++) {
+        int Pc = sc.nextInt(), Pr = sc.nextInt(), digit_Pc = 0, digit_Pr = 0;
+
+        if (Pc % 9 == 0) {
+            digit_Pc = Pc / 9;
+        } else {
+            digit_Pc = Pc / 9 + 1;
+        }
+
+        if (Pr % 9 == 0) {
+            digit_Pr = Pr / 9;
+        } else {
+            digit_Pr = Pr / 9 + 1;
+        }
+
+        if (digit_Pc < digit_Pr) {
+            System.out.printf("0 %d", digit_Pc);
+        } else if (digit_Pc > digit_Pr) {
+            System.out.printf("1 %d", digit_Pr);
+        } else {
+            System.out.printf("1 %d",digit_Pc );
+        }
+        System.out.println();
+    }
+}    
+}
