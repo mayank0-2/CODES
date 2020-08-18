@@ -1,0 +1,55 @@
+Question :-  https://www.codechef.com/JULY20B/problems/CRDGAME
+
+
+
+import java.util.*;
+class CRDGAME {
+    public static void main(final String[] args) {
+        int temp = 0, chef = 0, morty = 0;
+        int A, B;
+        final Scanner sc = new Scanner(System.in);
+        final int T = sc.nextInt();  //input test cases
+        for (int i = 0; i < T; i++) {
+            final int N = sc.nextInt();  //input no. of rounds played
+            for (int j = 0; j < N; j++) {
+                 A = sc.nextInt();  // input no. on chef's drawn card
+                if (A > 9) {
+                    temp = 0;
+                    while (A != 0) {
+                        temp = temp + (A % 10);
+                        A = A / 10;
+
+                    }
+                    A = temp;
+                }
+                B = sc.nextInt();  // input no. on morty's drawn card
+                if (B > 9) {
+                    temp = 0;
+                    while (B != 0) {
+                        temp = temp + (B % 10);
+                        B = B / 10;
+                    }
+                    B = temp;
+                }
+                if (A > B) {
+                    chef ++;
+                } else if (A < B) {
+                    morty ++;
+                } else {
+                    chef ++;
+                    morty ++;
+                }
+                A = B = 0;
+            }
+            
+            if (chef > morty) {
+                System.out.println("0 "+chef);
+            } else if (morty > chef) {
+                System.out.println("1 "+morty);
+            } else {
+                System.out.println("2 "+chef);
+            }
+            chef = morty =  0;
+        }
+    }
+}
