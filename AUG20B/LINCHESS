@@ -1,0 +1,43 @@
+//Question :-   https://www.codechef.com/AUG20B/problems/LINCHESS
+
+
+import java.util.*;
+
+class LINCHESS {
+    public static void main (String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int T = sc.nextInt();                                        //Input number of test cases
+        for (int i = 0; i < T; i ++) {
+            int times = 0, min_times = -1, pos = 0;
+            int N = sc.nextInt();                                    //no of other people
+            int K = sc.nextInt();                                   //chefs pawns position
+            int[] p = new int[N];
+            for (int j = 0; j < N; j ++) {
+                p[j] = sc.nextInt();
+            }
+            for (int j = 0; j < N; j ++) {
+                if (K >= p[j]) {
+                    if (K % p[j] == 0) {
+                        times = K / p[j] - 1;
+                        if (min_times == -1 ) {
+                            min_times = times;
+                            pos = j;
+                                }
+                    }
+                    
+                    if (times < min_times) {
+                        min_times = times;
+                        pos = j;
+                    }
+                }
+            }
+            if (min_times <= 0) {
+                System.out.println(-1);
+            } else {
+                System.out.println(p[pos]);
+            }
+        }
+
+    }  
+} 
+
