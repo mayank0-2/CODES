@@ -1,0 +1,23 @@
+Question :-   https://www.codechef.com/JULY20B/problems/CHEFSTR1
+
+#include<stdio.h>
+#include<stdlib.h>
+#include<math.h>
+
+int main(void) {
+    int T, i, N, j, sol = 0;
+    scanf("%d",&T);
+    for (i = 0; i < T; i ++) {
+        scanf("%d",&N);
+        int s[N];
+        for (j = 0; j < N; j ++) {
+            scanf("%d",&s[j]);
+        }
+        for (j = 1; j < N; j ++) {
+            sol += (abs(s[j] - s[j - 1]) - 1);
+        }
+        printf("%d\n",sol);
+        sol = 0;
+    }
+    return 0;
+}
