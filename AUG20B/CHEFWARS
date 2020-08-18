@@ -1,0 +1,28 @@
+Question  :-    https://www.codechef.com/AUG20B/problems/CHEFWARS
+
+
+
+import java.util.*;
+class CHEFWARS {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int T = sc.nextInt();
+        for (int i = 0; i < T; i ++) {
+            int H = sc.nextInt();
+            int P = sc.nextInt();
+            while (H > 0 && P > 0) {
+                H = H - P;
+                P = P / 2;
+            }
+            if (P == 0 && H > 0) {
+                System.out.println(0);
+            }
+            if (H <= 0 &&  P > 0) {
+                System.out.println(1);
+            }
+            if (H <= 0 && P == 0) {
+                System.out.println(1);
+            }
+        }
+    }
+}
