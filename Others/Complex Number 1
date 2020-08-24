@@ -1,0 +1,58 @@
+Question :- 
+
+You have been given a set of complex number. It is desired to add and substract the complex number.
+
+Input Format
+
+First line contains one integer representing the real part of first complex number. Second line contains one integer representing the imaginary part of first complex number. Third line contains one integer representing the real part of second complex number. Fourth line contains one integer representing the imaginary part of second complex number.
+
+Constraints
+
+Real or imaginary part of any number is less than equal to 10000
+
+Output Format
+
+Display the Real and imaginary part of complex number after addition and substraction.
+
+Sample Input 0
+
+7
+9
+4
+6
+Sample Output 0
+
+11
+15
+3
+3
+
+Solution :- 
+Solution using class
+#include<iostream>
+using namespace std;
+class complex {
+    public :
+        
+        int real, img;
+};
+
+int main(void) {
+    complex a, b;
+    cin >> a.real >> a.img >> b.real >> b.img;
+    cout << a.real + b.real << "\n" << a.img + b.img << "\n" << a.real - b.real << "\n" << a.img - b.img;
+    
+    return 0;
+}
+
+Normaly solved solution
+
+
+#include<iostream>
+int main(void) {
+    using namespace std;
+    int r1, i1, r2, i2;
+    cin >> r1 >> i1 >> r2 >> i2;
+    cout << r1 + r2 << "\n" << i1 + i2 << "\n"  << r1 - r2 << "\n" << i1 - i2;
+    return 0;
+}
