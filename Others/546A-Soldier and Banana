@@ -1,0 +1,18 @@
+Problem :-     https://codeforces.com/problemset/problem/546/A
+
+
+
+#include<iostream>
+#include<math.h>
+
+int main(void) {
+    int k,n,w, total;
+    std :: cin >> k >> n >> w;
+    total = k*(w + 1)*w / 2;
+    if (total > n) {
+        std :: cout << total - n;
+    } else {
+        std :: cout << '0';
+    }
+    return 0;
+}
