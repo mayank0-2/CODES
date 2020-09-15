@@ -1,0 +1,18 @@
+Problem :-   https://codeforces.com/contest/4/problem/A
+
+#include<iostream>
+using namespace std;
+
+int main(void) {
+    int w;
+    cin >> w;
+    for (int i = 2; i <= w / 2; i += 2) {
+        int p = i;
+        if (p % 2 == 0 && (w - p) % 2 == 0) {
+            cout << "YES";
+            exit(0);
+        }
+    }
+    cout << "NO";
+    return 0;
+}
