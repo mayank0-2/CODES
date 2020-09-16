@@ -1,0 +1,21 @@
+Problem :-    https://codeforces.com/problemset/problem/750/A
+
+
+
+#include<iostream>
+#include<math.h>
+
+int main(void) {
+    using namespace std;
+    int n, k;
+    cin >> n >> k;
+    for (int i = 1; i <= n; i ++) {
+        int time = 5 * i *(i + 1) / 2;
+        if (time > 240 - k) {
+            cout << i - 1;
+            exit(0);
+        }
+    }
+    cout << n;
+    return 0;
+}
