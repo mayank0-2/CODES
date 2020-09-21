@@ -1,0 +1,18 @@
+Problem :-   https://codeforces.com/problemset/problem/732/A
+
+
+#include<iostream>
+using namespace std;
+int main(void) {
+    int k, r, n = 1;
+    cin >> k >> r;
+    while(true) {
+        if ((n * k) % 10 == 0 || (n * k) % 10 == r) {
+            cout << n;
+            exit(0);
+        }
+        n ++;
+        
+    }
+    return 0;
+}
