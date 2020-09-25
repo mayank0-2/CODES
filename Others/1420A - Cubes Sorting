@@ -1,0 +1,39 @@
+Question :-   https://codeforces.com/problemset/problem/1420/A
+
+
+
+
+#include<iostream>
+#include<string>
+#include<vector>
+
+using namespace std;
+
+int main(void) {
+    
+    int T;
+    cin >> T;
+    while (T--) {
+        int n, swap = 0;
+        cin >> n;
+        auto limit = (n *(n - 1) / 2) - 1 ;
+        vector<int> arr;
+        for (int i = 0; i < n; i ++) {
+            int p;
+            cin >> p;
+            arr.push_back(p);
+        }
+       
+       for (int i = 1; i < n; i ++) {
+           if (arr[i - 1] > arr[i]) {
+               swap++;
+           }
+       }
+        if (swap >= n - 1) {
+            cout << "NO" << endl;
+        } else {
+            cout << "YES" << endl;
+        }
+    }
+    return 0;
+}
