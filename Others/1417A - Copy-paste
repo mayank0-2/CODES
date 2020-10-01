@@ -1,0 +1,38 @@
+Question :-   https://codeforces.com/problemset/problem/1417/A
+
+
+
+#include<iostream>
+#include<algorithm>
+#include<vector>
+
+using namespace std;
+int main(void) {
+    ios::sync_with_stdio(0);
+    cin.tie(0);
+    int t;
+    cin >> t;
+    while(t --) {
+        int n, k, count = 0;
+        cin >> n >> k;
+        vector<int> arr;
+        for (int i = 0; i < n; i ++) {
+            int p;
+            cin >> p;
+            arr.push_back(p);
+        }
+        sort(arr.begin(), arr.end());
+    //   for (int i = 0; i < n; i ++ ) {
+    //         cout << arr[i];
+    //   } 
+        for (int j = 1; j < n; j ++) {
+            while (arr[j] < k) {
+                arr[j] = arr[j] + arr[0];
+                if (arr[j] <= k)
+                    count ++;
+            }
+        }
+        cout << count << "\n";
+    }
+    return 0;
+}
