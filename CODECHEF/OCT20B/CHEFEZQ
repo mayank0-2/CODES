@@ -1,0 +1,37 @@
+Qustion :- https://www.codechef.com/OCT20B/problems/CHEFEZQ
+
+sol :-
+
+#include<iostream>
+#include<vector>
+using namespace std;
+int main(void) {
+    ios :: sync_with_stdio(0);
+    cin.tie(0);
+    long long int t ;
+    cin >> t; 
+    while(t--) {
+        long long int n, k, left = 0, p;
+        cin >> n >> k;
+        vector<long long int> q;
+        for (long long int i = 0; i < n; i ++) {
+            long long int p;
+            cin >> p;
+            q.push_back(p);
+        }
+        for (long long int j = 0; j < n; j ++) {
+            left += q[j];
+            if (left < k) {
+                cout << j + 1 << "\n";
+                p = 0;
+                break;
+            } else {
+                left = left - k;
+            }
+            p = 1;
+        }
+        if (p) 
+            cout << left / k + n + 1 << "\n";
+    }
+    return 0;
+}
