@@ -1,0 +1,42 @@
+Question :-   https://www.codechef.com/OCT20B/problems/CVDRUN
+
+
+
+sol :-
+
+
+#include<iostream>
+using namespace std;
+
+int comp(int n, int k, int x, int y) {
+    int m = (x + k) % n, p = 0;
+    while (m != x) {
+        if (m == y) {
+            p = 1;
+            break;
+        } 
+        m = (m + k) % n;
+    }
+    return p;
+}
+
+int main(void) {
+    ios :: sync_with_stdio(0);
+    cin.tie(0);
+    int t ;
+    cin >> t;
+    while (t --) {
+        int n, k, x, y;
+        cin >> n >> k >> x >> y;
+        if (x == y) {
+            cout << "YES\n";
+        } else {
+           if (comp(n, k, x, y)) {
+               cout << "YES\n";
+           } else {
+               cout << "NO\n";
+           }
+        }
+    }
+    return 0;
+}
