@@ -1,3 +1,8 @@
+Question :- https://www.codechef.com/problems/POSAND
+
+sol:-
+
+
 #include<iostream>
 #include<vector>
 #include<cmath>
