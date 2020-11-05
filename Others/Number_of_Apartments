@@ -1,4 +1,6 @@
-// Questions : https://codeforces.com/problemset/problem/1430/A
+Question : https://codeforces.com/problemset/problem/1430/A
+
+Solution :- 
 #include<iostream>
 using namespace std;
 int main(void) {
