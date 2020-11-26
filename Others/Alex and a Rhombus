@@ -1,0 +1,17 @@
+Question :- https://codeforces.com/contest/1180/problem/A
+
+
+#include<iostream>
+#include<cmath>
+using namespace std;
+int main(void) {
+    double n, half_count, half_sum;
+    cin >> n;
+    double sum = 1, grid = 0;
+    grid = (2 * n) - 1;
+    half_count = floor(grid / 2);
+    half_sum = (half_count / 2) * (2 + ((half_count - 1)* 2));
+    sum = 2 * half_sum + (2 * half_count + 1);
+    cout << int(sum);
+return 0; 
+}
