@@ -1,0 +1,30 @@
+Quesstion :- https://codeforces.com/contest/1366/problem/A
+
+Solution :- 
+
+
+#include<iostream>
+#include<cmath>
+using namespace std;
+int main(void) {
+    ios :: sync_with_stdio(false);
+    cin.tie();
+    cout.tie();
+    int t, a, b, ans;
+    cin >> t;
+    while(t--) {
+        cin >> a >> b;
+        if (a == 0 || b == 0) {
+            cout << "0" << "\n";
+        } else {
+            ans = (a + b) / 3;
+            if (a > b) {
+                ans = ans > b ? b : ans;
+            } else {
+                ans = ans > a ? a : ans;
+            }
+            cout << ans << "\n";
+        }
+    }
+    return 0;
+}
