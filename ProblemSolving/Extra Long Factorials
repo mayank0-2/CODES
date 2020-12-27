@@ -1,0 +1,48 @@
+Question :-  https://www.hackerrank.com/challenges/extra-long-factorials/problem
+
+
+Solution :-
+
+#include<bits/stdc++.h>
+#define MAX 500
+using namespace std;
+
+int display(int array[], int array_size) {
+    for (int i = array_size - 1; i >= 0; i --) {
+        cout << array[i];
+    }
+    return 0;
+}
+int multiply(int i, int array_size, int array[]) {
+    int carry = 0;
+    for (int j = 0; j < array_size; j ++) {
+        int product = (array[j] * i + carry);
+        array[j] = product % 10;
+        carry = product / 10;
+
+    }
+    while (carry) {
+        array[array_size] = carry % 10;
+        carry = carry / 10;
+        array_size ++;
+    }
+    return array_size;
+}
+int fact(int n) {
+    int array[MAX];
+    array[0] = 1;
+    int array_size = 1;
+    for (int i = 2; i <= n; i ++) {
+        array_size = multiply(i, array_size, array);  
+    }
+    display(array, array_size);
+    return 0;
+}
+
+
+int main(void) {
+    int n;
+    cin >> n;
+    fact(n);
+    return 0;
+}
