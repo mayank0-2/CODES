@@ -1,0 +1,31 @@
+Question :-  https://www.codechef.com/JAN21C/problems/DIVTHREE
+
+
+solution :-
+
+#include<bits/stdc++.h>
+using namespace std;
+int main(void) {
+    int t;
+    cin >> t;
+    while(t --) {
+        int n, k, d, sum = 0;
+        cin >> n >> k >> d;
+        int a[n + 1];
+        for (int i = 1; i <= n; i ++) {
+            cin >> a[i];
+            sum = sum + a[i];
+        }
+        if(sum < k) {
+            cout << '0' << "\n";
+        } else {
+            int cal_days = sum / k;
+            if (cal_days < d) {
+                cout << cal_days << "\n" ;
+            } else {
+                cout << d << "\n";
+            }
+        }
+    }
+    return 0;
+}
