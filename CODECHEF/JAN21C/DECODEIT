@@ -1,0 +1,43 @@
+Question :- https://www.codechef.com/JAN21C/problems/DECODEIT
+
+Solution :-
+
+#include<bits/stdc++.h>
+using namespace std;
+char find(string s, int llimit, int ulimit) {
+    int q = 1, b = 16;
+    for (int i = llimit; i < ulimit; i ++) {
+        if (s[i] == '0') {
+            b -= (b - q + 1) / 2;
+        } else {
+            q += (b - q + 1) / 2;
+        }
+    }
+    if (s[3] == '1') {
+       return char(96 + b);
+    } else {
+        return char(96 + q);
+    }
+}
+
+int main(void) {
+    int t;
+    cin >> t;
+    while (t --) {
+        int n, p = 4, count = 1, llimit = 0, ulimit = 4;
+        cin >> n;
+        string s;
+        cin >> s;
+        string ans;
+        ans = find(s, llimit, ulimit);
+        while (p < n) {
+            llimit = ulimit;
+            p += 4;
+            if (p <= n) ulimit = p;
+            else ulimit = n;
+            ans += find(s, llimit, ulimit);
+        }
+        cout << ans << "\n";
+    }
+    return 0;
+}
