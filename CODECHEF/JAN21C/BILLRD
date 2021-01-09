@@ -1,0 +1,46 @@
+Question :-  https://www.codechef.com/JAN21C/problems/BILLRD
+
+Solution :- 
+
+
+#include<bits/stdc++.h>
+using namespace std;
+int main(void) {    
+    ios :: sync_with_stdio(0);
+    cin.tie(0);
+    cout.tie(0);
+
+    int t; 
+    cin >> t;
+    while (t --) {
+        int n, k, x, y, counter = 1;
+        cin >> n >> k >> x >> y;
+        if (x == y) {
+            cout << n << " " << n << "\n";
+        } else {
+            int distance = min(n - x, n - y);
+            if ((n - x) < (n - y)) {                             // for lower triangle 
+                if (k % 4 == 1) {
+                    cout << x + distance << " " << y + distance << "\n";
+                } else if (k % 4 == 2) {
+                    cout << y + distance << " " << x + distance << "\n";
+                } else if (k % 4 == 3) {
+                    cout << "0" << " " << x - y << "\n" ;
+                } else {
+                    cout << x - y << " " << "0" << "\n";
+                }
+            } else {                                                // for upper triangle
+                 if (k % 4 == 1) {
+                    cout << x + distance << " " << y + distance << "\n";
+                } else if (k % 4 == 2) {
+                    cout << y + distance << " " << x + distance << "\n";
+                } else if (k % 4 == 3) {
+                    cout << y - x << " " << "0" << "\n" ;
+                } else {
+                    cout << "0" << " " << y - x << "\n";
+                }
+            }
+        }
+    }
+    return 0;
+}
