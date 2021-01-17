@@ -1,0 +1,30 @@
+Question :-   https://codeforces.com/problemset/problem/1473/B
+
+Solution :- 
+
+#include<bits/stdc++.h>
+using namespace std;
+
+string mul(string s, int k) {
+    string result = "";
+    while (k --) result += s;
+    return result; 
+} 
+int main(void) {
+    ios :: sync_with_stdio(0);
+    cin.tie(0);
+    cout.tie(0);
+
+    int q;
+    cin >> q;
+    while (q --) {
+        string s, t;
+        cin >> s >> t;
+        int a = s.length(), b = t.length();
+        int g = __gcd(a, b);
+        if (mul(s, b / g) == mul(t, a / g)) cout << mul(s, b / g) << "\n";
+        else cout << "-1" << "\n";
+        
+    }
+    return 0;
+}
