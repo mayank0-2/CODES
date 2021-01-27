@@ -1,0 +1,26 @@
+Question :-  https://codeforces.com/contest/1415/problem/A
+
+Solution :- 
+
+
+#include<bits/stdc++.h>
+using namespace std;
+int prision(int n, int m, int r, int c) {
+    int x = max(r - 1, n - r);
+    int y = max(c - 1, m - c);
+    cout << x + y << "\n";
+    return 0;
+}
+
+int main(void) {
+    ios :: sync_with_stdio(0);
+    cin.tie(0); cout.tie(0);
+    int t;
+    cin >> t;
+    while(t --) {
+        int n, m, r, c;
+        cin >> n >> m >> r >> c;
+        prision(n, m, r, c);
+    }
+    return 0;
+}
