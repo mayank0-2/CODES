@@ -1,0 +1,31 @@
+Question :-  https://codeforces.com/problemset/problem/231/A
+
+Solution :-
+
+#include<bits/stdc++.h>
+#define ll long long int
+using namespace std;
+
+int solve(ll n, ll m, ll a) {
+   
+    return 0;
+}
+
+int main(void) {
+    ios :: sync_with_stdio(0);
+    cin.tie(0);
+    cout.tie(0);
+    
+    int n ,a[3], count = 0;
+    cin >> n;
+    for (int i = 0; i < n; i ++) {
+        int frnd[] = {0, 0};
+        for (int j = 0; j < 3; j ++) {
+            cin >> a[j];
+            frnd[a[j]] ++;
+        }
+        if (frnd[1] > 1) count ++;
+    }
+    cout << count;
+    return 0;
+}
