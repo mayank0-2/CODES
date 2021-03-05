@@ -1,0 +1,12 @@
+Question :-   https://codeforces.com/problemset/problem/50/A
+
+Solution :-
+
+#include<bits/stdc++.h>
+using namespace std;
+int main(void) {
+    int n, m;
+    cin >> n >> m;
+    cout << floor((m * n) / 2);
+    return 0;
+}
