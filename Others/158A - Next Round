@@ -1,0 +1,36 @@
+Question :-   https://codeforces.com/problemset/problem/158/A
+Solution :-  
+
+
+#include<bits/stdc++.h>
+using namespace std;
+
+int solve (int a[], int n , int k) {
+    // cout << "Inside solve\n";
+   int count = 0;
+   for (int i = 0; i < n; i ++) {
+       if (a[i] >= a[k - 1] && a[i] != 0) {
+           count ++;
+        //   cout << "Inside if statement\n";
+       }
+   }
+   cout << count; 
+//   cout << "\nDone with solve\n";
+    return 0;
+}
+
+int main(void) {
+    ios :: sync_with_stdio(0);
+    cin.tie(0);
+    cout.tie(0);
+    // cout << "Inside main\n";
+    int n, k;
+    cin >> n >> k;
+    int a[n];
+    for (int i = 0; i < n; i ++) {
+        cin >> a[i];
+    }
+    solve(a, n, k);
+    // cout << "Done with main\n";
+    return 0;
+}
