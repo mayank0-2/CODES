@@ -1,0 +1,45 @@
+Question :- https://codeforces.com/problemset/problem/158/B
+
+Solution :-
+
+#include<bits/stdc++.h>
+using namespace std;
+
+int display(int array[], int size) {
+	for (int i = 0; i < size; i ++)    cout << array[i] << " ";
+	cout << "\n";
+	return 0;
+}
+int solve(int count[]) {
+	// cout << "Entered solve\n";
+	int car = 0;
+	count[0] = count[0] < count[2] ? 0 : count[0] - count[2]; // 1 went with 3
+	// cout << count[0] << "count o is \n";
+	// count[0] = ((count[0] / 2) - count[1]) >= 0 ? 2 * count[0] : 0; // 1 went with 2
+	// cout << count[0] << "count 0 after 2nd processing\n";
+	double temp = 2 * count[1] + count[0];
+	temp = ceil(temp / 4);
+	car = count[3] + count[2] + temp;
+	cout << car;
+	// cout << "\nFinished solve\n";
+	return 0;
+}
+int main(void) {
+	ios :: sync_with_stdio(0);
+	cin.tie(0);
+	cout.tie(0);
+	int n;
+	// cout << "Entered main\n";
+	cin >> n;
+	int a[n], count[4] = {0};
+	for (int i = 0; i < n; i ++) {
+		cin >> a[i];
+		count[a[i] - 1] ++;
+	}
+	// display(a, n);
+	// display(count, 4);
+	solve(count);
+	
+	// cout << "Finished main\n";
+	return 0;
+}
