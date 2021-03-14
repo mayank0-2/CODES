@@ -1,0 +1,32 @@
+Question :-  https://codeforces.com/problemset/problem/25/A
+
+Solution :- 
+
+
+#include<bits/stdc++.h>
+using namespace std;
+int main(void) {
+    ios :: sync_with_stdio(0);
+    cin.tie(0);
+    cout.tie(0);
+    int n, even_counter = 0, odd_counter = 0, even_index = 0, odd_index = 0;
+    cin >> n;
+    int natural_no[n];
+    for (int i = 0; i < n; i ++) {
+        cin >> natural_no[i];
+        if(natural_no[i] % 2 == 0) {
+            even_counter ++;
+            even_index = i;
+        } else {
+            odd_counter ++;
+            odd_index = i;
+        }
+    }
+
+    if(even_counter == 1) {
+        cout << even_index + 1;
+    } else {
+        cout << odd_index + 1;
+    }
+    return 0;
+}
