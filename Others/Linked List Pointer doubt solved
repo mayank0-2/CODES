@@ -1,0 +1,24 @@
+#include<bits/stdc++.h>
+using namespace std;
+class node {
+    public:
+    int data;
+    node *left , *right;
+};
+
+void insert(int value, node **head) {
+    if (*head == nullptr) {
+        node *temp = new node;
+        temp -> data = value;
+        temp -> left = *head;
+        temp -> right = nullptr;
+        *head = temp;
+    }
+
+}
+int main(void) {
+    node *head = nullptr;
+    insert(5, &head);
+    cout << head -> data;
+    return 0;
+}
