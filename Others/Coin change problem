@@ -1,0 +1,40 @@
+Question :-  Coin change problem dp
+
+
+Solution:-
+
+
+
+//Coin exchange problem
+#include <iostream>
+using namespace std;
+    
+int main() {
+    int coin[] = {0,2,3,5,10};
+    int n = 16;
+    int count[5][16] = {0};
+	for (int i = 0; i < n; i ++) {
+           count[0][i] = 0;
+	}
+
+	for (int i = 1; i < 5; i ++) {
+        count[i][0] = 1;
+	}
+    for (int i = 1; i < 5; i++) {
+        for (int j = 1; j < n; j ++) {
+            if (coin[i] > j) {
+                count[i][j] = count[i - 1][j];
+            } else {
+                count[i][j] = count[i - 1][j] + count[i][j - coin[i]]; 
+            }
+        }
+    }
+    // for(int i = 0; i < 5; i ++) {
+    //     for (int j = 0; j < 16; j ++) {
+	// 		cout << count[i][j] << " ";
+	// 	}
+	// 	cout << "\n";
+    // }
+	cout << count[4][15];
+	return 0;
+}
