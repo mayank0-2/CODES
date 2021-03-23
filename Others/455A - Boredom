@@ -1,0 +1,43 @@
+Question :-  https://codeforces.com/problemset/problem/455/A
+
+Solution :--
+
+#include<bits/stdc++.h>
+typedef long long int ll;
+using namespace std;
+
+int display(ll a[], ll n) {
+    for (ll i = 0; i < n; i ++) {
+        cout << a[i] << " ";
+    }
+    cout << "\n";
+    return 0;
+}
+
+
+int solve(ll n, ll in[]) {
+    ll count[in[n - 1] + 1] = {0}, ans[in[n - 1] + 1];
+    for (ll i = 0; i < n; i ++) {
+        count[in[i]] ++;
+    }
+    // display(count, in[n - 1]);
+    ans[0] = 0;
+    ans[1] = count[1];
+    for (ll i = 2; i <= in[n - 1]; i ++) {
+        ans[i] = max(ans[i - 1], (count[i] * i) + (ans[i - 2]));
+    }
+    cout << ans[in[n - 1]];
+    return 0;
+}
+int main(void) {
+    ios :: sync_with_stdio(0);
+    cin.tie(0);
+    cout.tie(0);
+    ll n;
+    cin >> n;
+    ll in[n];
+    for (ll i = 0; i < n; i ++)    cin >> in[i];
+    sort(in, in + n);
+    solve(n, in);
+    return 0;
+}
