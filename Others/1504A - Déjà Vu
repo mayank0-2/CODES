@@ -1,0 +1,42 @@
+Question :-       https://codeforces.com/problemset/problem/1504/A
+
+Solution :-
+
+
+#include<bits/stdc++.h>
+using namespace std;
+
+bool palindrom(string s) {
+    int len = s.length();
+    if (len % 2 == 0) {
+        for (int i = 0; i < len / 2; i ++) {
+            if (s[i] != s[len - 1 - i])     return 1;
+        }
+    } else {
+        for (int i = 0; i < floor(len / 2); i ++) {
+            if (s[i] != s[len - 1 - i])     return 1;
+        }
+    }
+    return 0;
+}
+
+int main(void) {
+    ios :: sync_with_stdio(0);
+    cin.tie(0);    
+    cout.tie(0);
+    int t;
+    cin >> t;
+    cin.ignore();
+    while (t --) {
+        string s;
+        cin >> s;
+        if(palindrom(s + 'a'))   {
+            cout << "YES\n" << s + 'a' << "\n";
+        } else if(palindrom('a' + s)) {
+            cout << "YES\n" << 'a' + s << "\n";
+        } else {
+            cout << "NO\n";
+        }
+        cin.ignore();
+    }
+}
