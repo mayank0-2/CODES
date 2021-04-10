@@ -1,0 +1,72 @@
+Question :-  https://codeforces.com/problemset/problem/1504/B
+
+Solution :-     
+
+#include<bits/stdc++.h>
+using namespace std;
+
+int display(int a[], int n) {
+    for (int i = 0; i < n; i ++) {
+        cout << a[i] << " ";
+    }
+    cout  << "\n";
+    return 0;
+}
+
+int solve(int n, string a, string b) {
+    int zero[n] = {0}, one[n] = {0}, flag = 0, counter = 1;
+    if (a[0] == '0') {
+        zero[0] ++;
+    } else {
+        one[0] ++;
+    }
+    //counting no of zeroes and one at each pos
+    for (int i = 1; i < n; i ++) {
+        if (a[i] == '0') {
+            zero[i] = zero[i - 1] + 1;
+            one[i] = one[i - 1];
+        } else {
+            one[i] = one[i - 1] + 1;
+            zero[i] = zero[i - 1]; 
+        }
+    }
+    //  display(zero, n);
+    //  display(one, n);
+    
+    //checking frm last
+    for (int i = n - 1; i >= 0; i --) {
+        if (flag % 2 == 0) { // change countered
+            if (a[i] != b[i] && one[i] != zero[i]) {
+                cout << "NO\n";
+                counter = 0;
+                break;
+            } else if (a[i] != b[i] && one[i]  == zero[i]) {
+                flag ++;
+            }
+        }  else { // bit changed
+                if (a[i] == b[i] && one[i] != zero[i]) {
+                    cout << "NO\n";
+                    counter = 0;
+                    break;
+                } else if (a[i] == b[i] && one[i]  == zero[i]) {
+                    flag ++;
+            }
+        }
+    }
+    if (counter) {
+        cout << "YES\n";
+    }
+    return 0;
+}
+
+int main(void) {
+    int t;
+    cin >> t;
+    while (t --) {
+        int n;
+        string a, b;
+        cin >> n >> a >> b;
+        solve(n, a, b);        
+    }
+    return 0;
+}
