@@ -1,0 +1,69 @@
+Quesion :-    https://codeforces.com/problemset/problem/1512/B
+
+Solution :-
+
+#include<bits/stdc++.h>
+using namespace std;
+
+int main(void) {
+    ios :: sync_with_stdio(false);
+    cin.tie(0);
+    cout.tie(0);
+    int t, n;
+    cin >> t;
+    while (t --) {
+        int counter = 0, first[2], second[2];
+        cin >> n;
+        char a[n][n];
+        for (int i = 0; i < n; i++) {
+            for (int j = 0; j < n; j ++) {
+                cin >> a[i][j];
+                if (a[i][j] == '*' && counter == 0) {
+                    first[0] = i; 
+                    first[1] = j; 
+                    counter ++;
+                } else if (a[i][j] == '*' && counter == 1) {
+                    second[0] = i;
+                    second[1] = j;
+                }
+            }
+        }
+
+        if (first[0] != second[0] && first[1] != second[1]) { // diagonal points
+            for (int i = 0; i < n; i ++) {
+                for (int j = 0; j < n; j ++) {
+                    if ( (i == first[0] && j == second[1]) || (i == second[0] && j == first[1])) {
+                        cout << '*';
+                    } else {
+                        cout << a[i][j];
+                    }
+                }
+                cout << "\n";
+            }
+        } else if (first[0] == second[0]) {     //horizontal points
+            
+            for (int i = 0; i < n; i ++) {
+                for (int j = 0; j < n; j ++) {
+                    if ( (i == (first[0] + 1 >= n ? first[0] -1 : first[0] + 1) && j == first[1]) || (i == (second[0] + 1 >= n ? second[0] -1 : second[0] + 1) && j == second[1])) {
+                        cout << '*';
+                    } else {
+                        cout << a[i][j];
+                    }
+                }
+                cout << "\n";
+            }
+        } else if (first[1] == second[1]) {     //vertical points
+            for (int i = 0; i < n; i ++) {
+                for (int j = 0; j < n; j ++) {
+                    if ( (i == first[0] && j == (first[1] + 1 >= n ? first[1] -1 : first[1] + 1)) || i ==second[0] && j == (second[1] + 1 >= n ? second[1] -1 : second[1] + 1)) {
+                        cout << '*';
+                    } else {
+                        cout << a[i][j];
+                    }
+                }
+                cout << "\n";
+            }
+        }
+    }
+    return 0;
+}
