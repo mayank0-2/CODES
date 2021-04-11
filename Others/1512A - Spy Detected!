@@ -1,0 +1,36 @@
+Question :-     https://codeforces.com/problemset/problem/1512/A
+
+Soluton :-
+
+#include<bits/stdc++.h>
+using namespace std;
+
+int solve(int a[], int n) {
+    for (int i = 0; i < n; i ++) {
+        if (a[i] != a[n - 1] && a[n - 1] == a[n - 2]) {
+            cout << i + 1 << "\n";
+            break;
+        } else if (a[n - 1] != a[n - 2]) {
+            if (a[n - 1] != a[n - 3]) cout << n << "\n";
+            else cout << n - 1 << "\n";
+            break;
+        }
+    }
+    return 0;   
+}
+int main(void) {
+    ios :: sync_with_stdio(false);
+    cin.tie(0);
+    cout.tie(0);
+    int t, n;
+    cin >> t;
+    while (t --) {
+        cin >> n;
+        int a[n];
+        for (int i = 0; i < n; i ++) {
+            cin >> a[i];
+        }
+        solve(a, n);
+    }
+    return 0;
+}
