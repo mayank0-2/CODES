@@ -1,0 +1,32 @@
+Question :-   https://codeforces.com/problemset/problem/1505/B
+
+Solution :-   
+
+#include<bits/stdc++.h>
+using namespace std;
+int sum (int a) {
+    int result = 0;
+    while (a != 0) {
+        result += a % 10;
+        a /= 10; 
+    }
+    return result;
+
+}
+int main(void) {
+    ios :: sync_with_stdio(false);
+    cin.tie(0);
+    cout.tie(0);
+    int a, temp;
+    cin >> a;
+    if (a <= 9) {
+        cout << a;
+    } else {
+        temp = sum(a);
+        while (temp > 9)    temp = sum(temp);
+        if (temp <= 9) {
+            cout << temp;
+        }
+    }
+    return 0;
+}
