@@ -1,0 +1,26 @@
+Question:-    https://codeforces.com/problemset/problem/1511/B
+
+Solution :-
+
+#include<bits/stdc++.h>
+using namespace std;
+typedef long long int ll;
+void check(int a, int b, int c) {
+    cout << '1' + string(a - 1, '0') << " " ;
+    cout << (string(b - c + 1, '1') + string(c - 1, '0')) << "\n";
+    return;
+}
+int main(void) {
+    ios :: sync_with_stdio(false);
+    cin.tie(0);
+    cout.tie(0);
+    int t, a, b, c;
+    cin >> t;
+
+    while (t --) {
+        cin >> a >> b >> c;
+        check(a, b, c);   
+    }
+
+    return 0;
+}
