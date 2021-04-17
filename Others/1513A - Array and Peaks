@@ -1,0 +1,46 @@
+Question : -      https://codeforces.com/problemset/problem/1513/A
+
+Solution :-
+
+#include<bits/stdc++.h>
+using namespace std;
+int display(int a[], int n) {
+    for (int i = 0; i < n; i ++) {
+        cout << a[i] << " ";
+    }
+    cout << "\n";
+    return 0;
+}
+int swap(int a[], int counter) {
+    int temp = a[counter];
+    a[counter] = a[counter + 1];
+    a[counter + 1] = temp;
+    return 0;
+}
+
+int main(void) {
+    ios :: sync_with_stdio(false);
+    cin.tie(0);
+    cout.tie(0);
+
+    int t, n, k;
+    cin >> t;
+    while (t --) {
+        cin >> n >> k;
+        int a[n], counter = 1, flag = 1;
+        for (int i = 1; i <= n; i ++) {
+            a[i - 1] = i;
+        }
+        while (k --) {
+            swap(a, counter);
+            counter += 2;
+            if (counter > n) {
+                cout << "-1\n";
+                flag = 0;
+                break;
+            }
+        }
+        if (flag)   display(a, n);
+    }
+    return 0;
+}
