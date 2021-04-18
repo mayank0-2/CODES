@@ -1,0 +1,41 @@
+Question :-   https://codeforces.com/problemset/problem/1513/B
+
+Solution :-   
+
+#include<bits/stdc++.h>
+using namespace std;
+long long fact (long long n) {
+    if (n < 2) { 
+        return 1;
+    } else {
+       return (n * fact(n - 1)) % int(1e9 + 7);
+    }
+}
+
+int main (void) {
+    ios::sync_with_stdio(false);
+    cin.tie(0);
+    cout.tie(0);
+
+    long long t, n, l = 1e9 + 7;
+    cin >> t;
+    while (t --) {
+        cin >> n;
+        long long a[n], min, count = 0, flag = 1;
+        for (long long i = 0; i < n; i ++) {
+            cin >> a[i];
+        }
+        min = *min_element(a, a + n);
+        for (long long i : a) {
+            if (i == min) {
+                count ++;
+            } else if((min & i) != min) {
+                cout << "0\n";
+                flag = 0;
+                break;
+            } 
+        }
+        if (flag)   cout << ((count * (count - 1)) % l * (fact(n - 2)) % l) % l << "\n";
+    }  
+    return 0;
+}
