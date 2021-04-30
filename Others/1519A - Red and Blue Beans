@@ -1,0 +1,56 @@
+Question :-     https://codeforces.com/problemset/problem/1519/A
+
+Solution :-
+
+
+#include<bits/stdc++.h>
+using namespace std;
+int main(void) {
+    ios_base :: sync_with_stdio(false);
+    cin.tie(NULL);
+    cout.tie(NULL);
+    long long t, d;
+    double r, b;
+    cin >> t;
+    while (t --) {
+        cin >> r >> b >> d;
+        if (r == b) {
+            if ((r - b) <= d)   cout << "YES\n";
+            else cout << "NO\n";
+        } else {
+            if (r > b) {
+                if ( floor(r / b) == ceil(r / b)) {
+                    if ((r / b) - 1 <= d) {
+                        cout << "YES\n";
+                    } else {
+                        cout << "NO\n";
+                    }
+                } else {
+                    if(ceil(r / b) - 1 <= d) {
+                        cout << "YES\n";
+                    } else {
+                        cout << "NO\n";
+                    }
+                }
+            } else {
+                if ( floor(b / r) == ceil(b / r)) {
+                    if ((b / r) - 1 <= d) {
+                        cout << "YES\n";
+                    } else {
+                        cout << "NO\n";
+                    }
+                } else {
+                    if(ceil(b / r) - 1 <= d) {
+                        cout << "YES\n";
+                    } else {
+                        cout << "NO\n";
+                    }
+                }
+            }
+
+        }
+        
+    }
+
+    return 0;
+}
