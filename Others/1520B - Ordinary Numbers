@@ -1,0 +1,40 @@
+Question :-   https://codeforces.com/problemset/problem/1520/A
+
+Solution :-
+
+
+#include<bits/stdc++.h>
+using namespace std;
+
+int testcase(int n, string str) {
+    char prev;
+    bool visited[26] = {false};
+    int flag = 1;
+    visited[str[0] - 'A'] = true;
+    for (int i = 1; i < n; i ++) {
+        if (str[i] != str[i - 1] && visited[str[i] - 'A']) {
+            cout << "NO\n";
+            flag = 0;
+            break;
+        } 
+        visited[str[i] - 'A'] = true;
+        prev = str[i];
+    }
+    if (flag) cout << "YES\n";
+    return 0;
+}
+
+int main(void) {
+    ios_base :: sync_with_stdio(false);
+    cin.tie(NULL);
+    cout.tie(NULL);
+    int t;
+    cin >> t;
+    while(t --) {
+        int n;
+        string str;
+        cin >> n >> str;
+        testcase(n, str);
+    }
+
+}
