@@ -1,0 +1,55 @@
+Question :-       https://codeforces.com/problemset/problem/1520/B
+
+
+Solution :-
+
+
+
+#include<bits/stdc++.h>
+using namespace std;
+
+int digit(int n) {
+    return floor(log10(n) + 1);
+}
+
+int formation(int length, int to) {
+    int num = to;
+    while (length - 1 != 0) {
+        num = (num * 10) + to;
+        length --;
+    }
+    return num;
+
+}
+int resi (int length, int n) {
+    int residue = 0;
+    int first_digit = int(n / pow(10, length - 1));
+    residue = first_digit - 1;
+    if (n >= formation(length, first_digit)) {
+        residue ++;
+    }
+    return residue;
+}
+
+int testcase(int n) {
+    int length = digit(n), left, ans = 1;
+    left = n - pow(10, length - 1);
+    ans = 9 * (length - 1) + resi(length, n);
+    cout << ans << "\n";
+
+    return 0;   
+}
+
+int main(void) {
+    ios_base :: sync_with_stdio(false);
+    cin.tie(NULL);
+    cout.tie(NULL);
+    int t;
+    cin >> t;
+    while (t --) {
+        int n;
+        cin >> n;
+        testcase(n);
+    }
+    return 0;
+}
