@@ -1,0 +1,36 @@
+Question :-     https://www.codechef.com/MAY21C/problems/XOREQUAL
+
+Solution :-   
+
+
+#include<bits/stdc++.h>
+using namespace std;
+long long modulo = 1e9 + 7;
+
+//using modular exponentiation
+long long modular(long long n) {
+    long long toreturn = 1, x = 2;
+
+    while (n > 0) {
+        //if n is odd
+        if (n & 1) {
+            toreturn = (toreturn * x) % modulo;
+        } 
+        n = n >> 1; // dividing n by 2
+        x = (x * x) % modulo;
+    }
+    return toreturn;
+}
+int main(void) {
+    ios_base :: sync_with_stdio(false);
+    cin.tie(NULL);
+    cout.tie(NULL);
+    int t, n;
+    cin >> t;
+    while (t --) {
+        cin >> n;
+        long long passed_eq = modular(n - 1);
+        cout << passed_eq << "\n"; 
+    }
+    return 0;
+}
