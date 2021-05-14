@@ -1,0 +1,92 @@
+Question :-   https://www.codechef.com/MAY21C/problems/TCTCTOE
+
+Solution :-   
+
+
+#include<bits/stdc++.h>
+using namespace std;
+
+int testcase(string grid[]) {
+    int count_o = 0, count_x = 0, count_ = 0, crossed = 0;
+    char temp = '_';
+    bool reacheble = true, finished = false, conflict = false;
+    for (int i = 0; i < 3; i ++) {
+        for (int j = 0; j < 3; j ++) {  
+            if (grid[i][j] == 'O')  count_o ++;
+            else if (grid[i][j] == 'X') count_x ++;
+            else    count_ ++;
+        }
+    }
+    //counting crossed inputs across rows and columns
+    for (int i = 0; i < 3; i ++) {
+        if (grid[i][0] == grid[i][1] && grid[i][1] == grid[i][2] && grid[i][0] != '_') {
+            crossed ++;
+            if (temp != '_' && temp != grid[i][0])  conflict = true;
+            temp = grid[i][0];
+        }
+        if(grid[0][i] == grid[1][i] && grid[1][i] == grid[2][i] && grid[0][i] != '_') {
+            crossed ++;
+            if (temp != '_' && temp != grid[0][i])  conflict = true;
+            temp = grid[0][i];
+        }
+    }
+    //counting crossed inputs across diagonals
+    if (grid[0][0] == grid[1][1] && grid[1][1] == grid[2][2] && grid[0][0] != '_') {
+        crossed ++;
+        if (temp != '_' && temp != grid[0][0])  conflict = true;
+        temp = grid[0][0];
+    }
+    if (grid[0][2] == grid[1][1] && grid[1][1] == grid[2][0] && grid[0][2] != '_') {
+        crossed ++;
+        if (temp != '_' && temp != grid[0][2])  conflict = true;
+        temp = grid[0][2];
+    }
+
+    // Checking for cases starts from here 
+
+
+    if (count_o > count_x || count_x > count_o + 1) {   //everyone has alternate move hence can't have diff more than 1
+        reacheble = false;
+    } else if ((count_x > count_o && crossed == 1 && temp == 'X') || (count_x == count_o && crossed == 1 && temp == 'O')) {
+        reacheble = true;
+        finished = true;
+    } else if (count_ == 0 && crossed == 0) {
+        reacheble = true;
+        finished = true;
+    } else if (count_ == 0 && crossed == 2 && conflict == false) {
+        reacheble = true;
+        finished = true;
+    } else if (count_ > 0 && crossed == 0) {
+        reacheble = true;
+        finished = false;
+    } else {
+        reacheble = false;
+    }
+
+    //printing the results 
+
+    if (!reacheble) {
+        cout << 3 << "\n";
+    } else if (reacheble && !finished) {
+        cout << 2 << "\n";
+    } else if (reacheble && finished ) {
+        cout << 1 << "\n";
+    }
+    return 0;
+}
+
+int main(void) {
+    ios_base :: sync_with_stdio(false);
+    cin.tie(NULL);
+    cout.tie(NULL);
+    int t;
+    string grid[3];
+    cin >> t;
+    while(t --) {
+        for (int i = 0; i < 3; i ++) {
+            cin >> grid[i];
+        }
+        testcase(grid);
+    }
+    return 0;
+}
