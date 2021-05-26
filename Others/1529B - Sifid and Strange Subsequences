@@ -1,0 +1,53 @@
+Question :- https://codeforces.com/contest/1529/problem/B
+Solution :-
+
+#include<bits/stdc++.h>
+using namespace std;
+
+int testcase_sol(int n, vector<int> a) {
+    int count = 0, x, all_neg = 0;
+    bool flag = true;
+    sort(a.begin(), a.end());
+    
+    for (int i = 0; i < n; i ++) {
+        if (a[i] > 0) {
+            x = a[i]; //x is the min pos. value in the vector
+            break;
+        }
+        all_neg ++;
+    }
+
+    if (a[0] > 0) {
+        cout << "1" << "\n";
+    } else if (a[n - 1] < 1) {
+        cout << n << "\n";
+    } else {
+        for (int i = 1; i < all_neg; i ++) {
+            flag &= (a[i] - a[i - 1] >= x);
+        }
+        if (flag)  cout << all_neg + 1 << "\n"; 
+        else    cout << all_neg << "\n";
+    }
+    return 0;
+}   
+
+int main(void) {
+    ios_base :: sync_with_stdio(false);
+    cin.tie(NULL);
+    cout.tie(NULL);
+
+    int t;
+    cin >> t;
+    while (t --) {
+        int n;
+        cin >> n;
+        vector<int> a;
+        for (int i = 0; i < n; i ++) {
+            int temp;
+            cin >> temp;
+            a.push_back(temp);
+        } 
+        testcase_sol(n, a);
+    }
+    return 0;
+}
