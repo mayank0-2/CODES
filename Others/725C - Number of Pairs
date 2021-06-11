@@ -1,0 +1,53 @@
+Question :-     https://codeforces.com/contest/1538/problem/A
+
+Solution :-
+
+#include<bits/stdc++.h>
+using namespace std;
+
+int testcase(int n, vector<int>& a) {
+    int a_min = *min_element(a.begin(), a.end());
+    int b_max = *max_element(a.begin(), a.end());
+    int pos_min, pos_max;
+    for (int i = 0; i < n; i ++) {
+        if (a[i] == a_min) pos_min = i + 1;
+        if (a[i] == b_max) pos_max = i + 1;
+    }
+    bool left_min = false;
+    bool left_max = false;
+    if (pos_min < n - pos_min + 1) {
+        left_min = true;
+    }
+    if (pos_max < n - pos_max + 1) {
+        left_max = true;
+    } 
+
+    if (left_min && left_max) {
+        cout << max(pos_min, pos_max) << "\n";
+    } else if (!left_min && !left_max) {
+        cout << n - min(pos_min, pos_max) + 1 << "\n";
+    } else if (left_min && !left_max) {
+        cout << min(min((pos_min + n - pos_max + 1), pos_max), (n - pos_min + 1)) << "\n";
+    } else if (!left_min && left_max) {
+        cout << min(min((pos_max + n - pos_min + 1), pos_min), (n - pos_max + 1)) << "\n";
+    } 
+
+
+
+    return 0;
+}
+int main(void) {
+    ios_base :: sync_with_stdio(0);
+    cin.tie(0);
+    cout.tie(0);
+    int t;
+    cin >> t;
+    while (t --) {
+        int n;
+        cin >> n;
+        vector<int> a(n);
+        for (int &x : a) cin >> x;
+        testcase(n, a);
+    }
+    return 0;
+}
