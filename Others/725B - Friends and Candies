@@ -1,0 +1,47 @@
+Question:-  https://codeforces.com/contest/1538/problem/B
+Solution :-
+
+#include<bits/stdc++.h>
+using namespace std;
+int testcase(int n, vector<int> &a) {
+    int sum = 0;
+    int count = 0;
+    if (n == 1) {
+        cout << "0\n";
+        return 0;
+    } else {
+        for (int i : a) {
+            sum += i;
+        }
+        if (sum % n != 0) {
+            cout << "-1\n";
+            return 0;
+        } else {
+            sort(a.begin(), a.end(), greater<int> ());
+            for (int j : a) {
+                if (j > sum / n) count ++;
+                else break;
+            }
+        } 
+    }
+    int temp;
+    cout << (temp = (count == n ? 0 : count)) << "\n";
+    return 0;
+}
+
+int main(void) {
+    ios_base :: sync_with_stdio(false);
+    cin.tie(NULL);
+    cout.tie(NULL);
+    int t;
+    cin >> t;
+    while (t --) {
+        int n;
+        cin >> n;
+        vector<int> a(n);
+        for (int &x : a) cin >> x;
+        testcase(n, a);
+    }
+
+    return 0;
+}
