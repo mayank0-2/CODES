@@ -1,0 +1,39 @@
+Question :- https://codeforces.com/problemset/problem/1538/C
+
+Solution :-
+
+#include<bits/stdc++.h>
+using namespace std;
+using ll = long long;
+
+int testcase(int n, int l, int r, vector<int> &a) {
+    sort(a.begin(), a.end());
+    ll count = 0; 
+    for (int i = 0; i < n; i ++) {
+        //this upper_bound returns the right most element of the vector or array just greater than r - a[i]
+        //and the lower_bond returns the left most element of the vector or array just less than l - a[i]
+        count += upper_bound(a.begin(), a.end(), r - a[i]) - a.begin(); 
+        count -= lower_bound(a.begin(), a.end(), l - a[i]) - a.begin();
+        if (l <= 2 * a[i] && 2 * a[i] <= r) count --; 
+        //this is when both the iterator i and j were at the same pos and is in the viable range hence not possible so this -- is required here
+
+
+    }
+    cout << count / 2 << "\n"; // since we have not made pairs just counted the no of viable elements hence this divide by 2
+    return 0;
+}
+int main(void) {
+    ios_base :: sync_with_stdio(0);
+    cin.tie(0);
+    cout.tie(0);
+    int t;
+    cin >> t;
+    while (t --) {
+        int n, l, r;
+        cin >> n >> l >> r;
+        vector<int> a(n);
+        for (int &x : a) cin >> x;
+        testcase(n, l, r, a);
+    }
+    return 0;
+}
