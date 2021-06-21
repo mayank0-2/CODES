@@ -1,0 +1,39 @@
+Question :- https://codeforces.com/problemset/problem/1539/A
+
+Solution :-
+
+#include<bits/stdc++.h>
+using namespace std;
+
+int solve (long long n, long long x, long long t) {
+    if (t < x) {
+        cout << "0" << "\n";
+    }
+    else if ((n * x) <= t)  {
+        //this is the case when all the left participants fall inside the range with 1 part. finishing each time
+        cout << (n * (n + 1)) / 2 << "\n";
+    } else {
+         // t / x describes the no of people which will fall in an interval everytime
+        
+        long long t_by_x = t / x;
+        
+        //[n, t_by_x] there will be exactly t_by_x participant in the t interval but after that there is subsequent decrease of 1 unitll 0 so we calculate (t/x + t/x - 1 + t/x -2 +....+0)
+        
+        cout << ((n - t_by_x) * t_by_x) + (t_by_x * (t_by_x + 1) / 2) << "\n";
+
+    }
+    return 0;
+}
+int main(void) {
+    ios :: sync_with_stdio(false);
+    cin.tie(NULL);
+    cout.tie(NULL);
+    long long k;
+    cin >> k ;
+    while (k --) {
+        long long n, x, t;
+        cin >> n >> x >> t;
+        solve(n - 1, x, t);
+    }
+    return 0;
+}
