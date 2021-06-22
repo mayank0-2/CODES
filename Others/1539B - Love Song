@@ -1,0 +1,26 @@
+Question :-     https://codeforces.com/problemset/problem/1539/B
+Solution :-
+
+#include<bits/stdc++.h>
+using namespace std;
+typedef long long ll;
+
+int main(void) {
+    ios :: sync_with_stdio(false);
+    cin.tie(NULL);
+    cout.tie(NULL);
+
+    int n, q, l, r;
+    string s;
+    cin >> n >> q >> s;
+    vector<int> store(n + 1, 0);
+    for (int i = 1; i <= n; i ++) {
+            store[i] = store[i - 1] + (s[i - 1] - 'a' + 1); 
+        }
+    while (q --) {
+        cin >> l >> r;
+        cout << store[r] - store[l - 1] << "\n";
+    }
+
+    return 0;
+}
