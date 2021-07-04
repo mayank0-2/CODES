@@ -1,0 +1,28 @@
+Question :- https://www.codechef.com/JULY21C/problems/EITA
+
+Code :-
+
+#include<bits/stdc++.h>
+using namespace std;
+
+int solve(int d, int x, int y, int z) {
+    // x unit of work every day ||  y for d days & z for 7 - d days
+    int ans = max((x * 7), ((y * d) + (z * (7 - d))));
+    cout << ans << "\n";
+    return 0;
+}
+
+int main(void) {
+    ios :: sync_with_stdio(false);
+    cin.tie(NULL);
+    cout.tie(NULL);
+
+    int t, d, x, y, z;
+    cin >> t;
+    while (t --) {
+        cin >> d >> x >> y >> z;
+        solve(d, x, y, z);
+    }
+
+    return 0;
+}
