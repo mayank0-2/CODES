@@ -1,0 +1,30 @@
+Quesiton :- https://www.codechef.com/JULY21C/problems/RELATIVE
+
+Code :-
+
+
+#include<bits/stdc++.h>
+using namespace std;
+
+int solve(int g, double c) {
+    //c = speed of light & g = acc. due to gravity
+    //find smallest height such that final speed = c
+    int ans = (c * c) / (2 * g);
+    cout << ans << "\n";
+
+    return 0;
+}
+int main(void) {
+    ios :: sync_with_stdio(false);
+    cin.tie(NULL);
+    cout.tie(NULL);
+
+    int t, g, c;
+    cin >> t;
+    while (t --) {
+        cin >> g >> c;
+        solve(g, c);
+
+    }
+
+}
