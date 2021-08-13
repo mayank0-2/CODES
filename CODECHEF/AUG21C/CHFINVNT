@@ -1,0 +1,27 @@
+Problem :-  https://www.codechef.com/AUG21C/problems/CHFINVNT
+
+Code :-
+
+#include<bits/stdc++.h>
+using namespace std;
+int main (void) {
+    ios :: sync_with_stdio(false);
+    cin.tie(NULL);
+    cout.tie(NULL);
+    unsigned int t, n, p, k, sum = 0;
+    cin >> t;
+    while (t --) {
+        cin >> n >> p >> k;
+        // no of times repeated in the divisible range
+        int times = (n - 1) / k;
+        // finding the repetitive limit of the remainder
+        int rep_remainder = (p % k);
+        //calculating left outside the limit
+        int outside = ((n - 1) % k < rep_remainder) ? ((n - 1) % k) + 1: rep_remainder;
+        //calculating the final remainder
+        int final = p / k + 1;
+        cout << (times * rep_remainder) + outside + final << "\n";
+    }
+
+    return 0;
+}
