@@ -1,0 +1,52 @@
+Problem :- https://practice.geeksforgeeks.org/problems/allocate-minimum-number-of-pages0937/1#
+
+Code :- 
+
+
+#include<bits/stdc++.h>
+using namespace std;
+
+int solve(int n, int m, vector<int> &a) {
+    //taking starting as the max of the array and the last as the sum of array 
+    int sum = 0, min = INT_MIN, max = INT_MIN, mid, ans = -1;
+    for (int i = 0; i < n; i ++) {
+        sum += a[i];
+        if (min < a[i]) {
+            min = a[i];
+        }
+    }    
+    max = sum;
+    while (min <= max) {
+        sum = 0;
+        int count = 1;
+        mid = (max - min) / 2 + min;
+        for (int i = 0; i < n; i ++) {
+            sum += a[i];
+            if (sum > mid) {
+                sum = a[i];
+                count ++;
+            }
+        }
+        if (count > m) {
+            min = mid + 1;
+        } else {
+            max = mid - 1;
+            ans = mid;
+        }
+    }   
+    return ans;
+}
+
+int main(void) {
+    ios :: sync_with_stdio(false);
+    cin.tie(NULL);
+    cout.tie(NULL);
+
+    int n, m;
+    cin >> n >> m;
+    vector<int> a(n);
+    for (int &x : a) cin >> x;
+    //if no of student is greater than books then return -1
+    cout << (m > n ? -1 : solve(n, m, a)); 
+    return 0;
+}
