@@ -1,0 +1,91 @@
+Problem :- https://practice.geeksforgeeks.org/problems/count-of-sum-of-consecutives3741/1
+
+Code :-
+
+brute force approach 
+
+
+#include<bits/stdc++.h>
+using namespace std;
+
+int main (void) {
+    int n;
+    cin >> n;
+    int temp = 0, count = 0;
+    for (int i = 1; i < n; i ++) {
+        temp = i;
+        for (int j = i  + 1; j < n; j ++) {
+            temp += j;
+            if (temp == n) {
+                count ++;
+                break;
+            } 
+            if (temp > n) {
+                break;
+            }
+        }
+    }
+    cout << count;
+
+    return 0;
+}
+
+
+
+prefix sum method
+
+#include<bits/stdc++.h>
+using namespace std;
+int main (void) {
+    ios :: sync_with_stdio(false);
+    cin.tie(NULL);
+    cout.tie(NULL);
+    int N, count = 0;
+    cin >> N;
+    vector<int> sum(N);
+    sum[0] = 0; 
+    for (int i = 1; i < N; i ++) {
+        sum[i] = i + sum[i - 1];
+    }
+    for (int i = 0; i < N; i ++) {
+        if (sum[i] - N >= 0) {
+            for (int j = i - 1; j >= 0; j --) {
+                if (sum[j] == sum[i] - N) {
+                    count ++;
+                }
+            }
+        }
+    }
+    cout << count;
+
+    return 0;
+}
+
+
+
+optimised code
+
+#include<bits/stdc++.h>
+using namespace std;
+int main (void) {
+    int sum = 0;
+long int count = 0;
+long int i;
+int j = 0;
+int n ;
+cin >> n;
+while (sum < n)
+{
+j++;
+sum += j;
+}
+
+for (i = 1; i <= j; i++)
+{
+double z = ((n * 1.0 - (i * (i + 1) / 2))) / (i + 1);
+if (z > 0 and z == (int)z)
+count++;
+}
+
+return count;
+}
