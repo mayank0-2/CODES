@@ -1,0 +1,49 @@
+Problem :- https://leetcode.com/problems/squares-of-a-sorted-array/
+
+
+Code :-
+
+#include<bits/stdc++.h>
+using namespace std;
+vector<int> solve(vector<int> arr) {
+    int negend;
+    int posstart;
+    vector<int> result;
+    int i;
+    for (i = 0; i < arr.size(); i ++) {
+        if (arr[i] >= 0) break;
+    }
+    negend = i - 1;
+    posstart = i;
+    while (negend >= 0 && posstart < arr.size()) {
+        if (arr[negend] * arr[negend] < arr[posstart] * arr[posstart]) {
+            result.push_back(arr[negend] * arr[negend]);
+            negend --;
+        } else {
+            result.push_back(arr[posstart] * arr[posstart]);
+            posstart ++;
+        }
+    }
+
+    while (negend >= 0) {
+        result.push_back(arr[negend] * arr[negend]);
+        negend --; 
+    } 
+    while (posstart < arr.size()) {
+        result.push_back(arr[posstart] * arr[posstart]);
+        posstart ++;
+    }
+    return result;
+}
+
+int main(void) {
+    ios :: sync_with_stdio(0);
+    cin.tie(0);
+    cout.tie(0);
+
+    vector<int> arr = {-6, -3, -1, 2, 4, 5};
+    for (auto i : solve(arr)) {
+        cout << i << " ";
+    }
+    return 0;
+}
